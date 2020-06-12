@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"os"
-	"time"
 
 	"github.com/influxdata/telegraf/plugins/inputs/execd/shim"
 	_ "github.com/influxdata/telegraf/plugins/inputs/openvpn"
@@ -23,7 +22,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := shim.Run(time.Second); err != nil {
+	if err := shim.Run(0); err != nil {
 		fmt.Fprintf(os.Stderr, "Err: %v\n", err)
 		os.Exit(1)
 	}

@@ -1,5 +1,5 @@
 input-openvpn:
-	cd openvpn && go build ./cmd/input-openvpn
+	go build ./cmd/input-openvpn
 
 .PHONY: clean
 clean:
