@@ -1,1 +1,1 @@
-![](https://github.com/danielnelson/telegraf-execd-plugins/workflows/build/badge.svg)
+![](https://github.com/danielnelson/telegraf-execd-plugins/workflows/Build/badge.svg)
