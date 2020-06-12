@@ -1,7 +1,7 @@
-openvpn:
-	go build ./cmd/openvpn
+input-openvpn:
+	cd openvpn && go build ./cmd/input-openvpn
 
 .PHONY: clean
 clean:
-	rm -f openvpn
-	rm -f openvpn.exe
+	rm -f input-openvpn
+	rm -f input-openvpn.exe
