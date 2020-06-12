@@ -29,3 +29,9 @@ jobs:
     - name: Create distribution
       run: tar cvzf openvpn-linux-amd64.tar.gz input-openvpn
       working-directory: openvpn
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: openvpn-linux-amd64.tar.gz
+        path: openvpn/openvpn-linux-amd64.tar.gz
