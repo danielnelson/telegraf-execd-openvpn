@@ -60,7 +60,8 @@ jobs:
 
     - name: Download all artifacts
       uses: actions/download-artifact@v2
-      path: ./
+      with:
+        path: ./
 
     - name: Upload openvpn-linux-amd64.tar.gz
       uses: actions/upload-release-asset@v1
