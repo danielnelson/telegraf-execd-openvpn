@@ -144,8 +144,7 @@ github.com/couchbase/gomemcached v0.0.0-20180502221210-0da75df14530 h1:F8nmbiuX+
 github.com/couchbase/gomemcached v0.0.0-20180502221210-0da75df14530/go.mod h1:srVSlQLB8iXBVXHgnqemxUXqN6FCvClgCMPCsjBDR7c=
 github.com/couchbase/goutils v0.0.0-20180530154633-e865a1461c8a h1:Y5XsLCEhtEI8qbD9RP3Qlv5FXdTDHxZM9UPUnMRgBp8=
 github.com/couchbase/goutils v0.0.0-20180530154633-e865a1461c8a/go.mod h1:BQwMFlJzDjFDG3DJUdU0KORxn88UlsOULuxLExMh3Hs=
-github.com/danielnelson/telegraf v0.10.2-0.20200612023756-21a9718245d3 h1:lBMONAGI3xf6+619Y4Zi/unu3xh6/oMJuaI4RR7Hj9U=
-github.com/danielnelson/telegraf v0.10.2-0.20200612023756-21a9718245d3/go.mod h1:uBH7kG2XE9upfOWcmHN0pApEgdC8wBJspgkF4CYvuj8=
+github.com/danielnelson/telegraf v0.10.2-0.20200612034157-2c26fd56c08d h1:M44svYPU5eL1eMFQXGBovV20tDkCaAq73VWgZrspmx0=
 github.com/danielnelson/telegraf v0.10.2-0.20200612034157-2c26fd56c08d/go.mod h1:uBH7kG2XE9upfOWcmHN0pApEgdC8wBJspgkF4CYvuj8=
 github.com/davecgh/go-spew v0.0.0-20151105211317-5215b55f46b2/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
