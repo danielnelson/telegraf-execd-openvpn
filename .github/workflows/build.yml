@@ -27,5 +27,5 @@ jobs:
       working-directory: openvpn
 
     - name: Create distribution
-      run: tar -xzf openvpn-linux-amd64.tar.gz input-openvpn
+      run: tar cvzf openvpn-linux-amd64.tar.gz input-openvpn
       working-directory: openvpn
