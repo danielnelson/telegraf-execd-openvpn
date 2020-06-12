@@ -35,7 +35,6 @@ When updating the plugin the replace directive in `go.mod` will need updated.
 Generally it is expected that no tag will exist and the plugin will reside in a branch.
 ```sh
 go mod edit -replace github.com/influxdata/telegraf=github.com/danielnelson/telegraf@openvpn-input
-go mod download
 go mod tidy
 ```
 
