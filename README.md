@@ -2,6 +2,19 @@ OpenVPN Plugin for Telegraf execd input
 ---
 ![](https://github.com/danielnelson/telegraf-execd-plugins/workflows/Build/badge.svg)
 
+This repository contains an template project for building a Telegraf plugin as
+a standalone binary that can be ran using the [execd][] input plugin.
+
+Following this method you can generate binary packages for plugins currently
+written as a Telegraf built-in input plugin without modifying the plugin.  This
+allows you to have an open PR against the Telegraf repository and in the
+meantime produce binaries that will work with execd.
+
+The code for the plugin is contained in another repository and referenced in
+the `go.mod` file.
+
+If you are interested in using this plugin to monitor OpenVPN, the state of
+the plugin is pre-alpha and is not recommended for production use.
 
 ## Usage
 
@@ -40,3 +53,4 @@ go mod tidy
 
 
 [releases]: https://github.com/danielnelson/telegraf-execd-openvpn/releases/latest
+[execd]: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/execd
