@@ -6,8 +6,7 @@ GOARM ?= $(shell go env GOARM)
 all: openvpn
 
 openvpn:
-	cd ./plugins/inputs/openvpn && go build ./openvpn.go
-	mv ./plugins/inputs/openvpn/openvpn .
+	go build ./cmd/openvpn
 
 .PHONY: dist
 dist: openvpn-$(GOOS)-$(GOARCH).tar.gz
@@ -21,18 +20,16 @@ openvpn-linux-amd64.tar.gz: GOARCH := amd64
 openvpn-windows-amd64.tar.gz: GOOS := windows
 openvpn-windows-amd64.tar.gz: GOARCH := amd64
 openvpn-%.tar.gz:
-	env GOOS=$(GOOS) GOARCH=$(GOARCH) go build -o "dist/openvpn-$*/openvpn" -ldflags "-w -s" ./plugins/inputs/openvpn
+	env GOOS=$(GOOS) GOARCH=$(GOARCH) go build -o "dist/openvpn-$*/openvpn" -ldflags "-w -s" ./cmd/openvpn
 	mkdir -p "dist/openvpn-$*"
-	tar czf "$@" -C dist "openvpn-$*"
+	cd dist && tar czf "$@" "openvpn-$*"
 
 openvpn-%.zip:
-	env GOOS=$(GOOS) GOARCH=$(GOARCH) go build -o "dist/openvpn-$*/openvpn" -ldflags "-w -s" ./plugins/inputs/openvpn
+	env GOOS=$(GOOS) GOARCH=$(GOARCH) go build -o "dist/openvpn-$*/openvpn" -ldflags "-w -s" ./cmd/openvpn
 	mkdir -p "dist/openvpn-$*"
-	(cd dist && zip  -r - "openvpn-$*") > "$@"
+	cd dist && zip -r "$@" "openvpn-$*"
 
 .PHONY: clean
 clean:
 	rm -f openvpn{,.exe}
 	rm -rf dist
-	rm -f *.tar.gz
-	rm -f *.zip
