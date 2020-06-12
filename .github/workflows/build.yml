@@ -33,12 +33,14 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-        path: 'dist/*.tar.gz'
+        name: openvpn-linux-amd64.tar.gz
+        path: dist/openvpn-linux-amd64.tar.gz
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-        path: 'dist/*.zip'
+        name: openvpn-windows-amd64.zip
+        path: dist/openvpn-windows-amd64.zip
 
   release:
     name: Release
