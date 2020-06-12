@@ -60,11 +60,9 @@ jobs:
 
     - name: Download all artifacts
       uses: actions/download-artifact@v2
+      path: ./
 
-    - name: debug
-      run: ls -l
-
-    - name: Upload linux-amd64 tar.gz
+    - name: Upload openvpn-linux-amd64.tar.gz
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -74,7 +72,7 @@ jobs:
         asset_name: openvpn-linux-amd64.tar.gz
         asset_content_type: application/gzip
 
-    - name: Upload windows-amd64 zip
+    - name: Upload openvpn-windows-amd64.zip
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
