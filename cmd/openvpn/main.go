@@ -5,14 +5,34 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/influxdata/telegraf"
 	"github.com/influxdata/telegraf/plugins/inputs/execd/shim"
-	_ "github.com/influxdata/telegraf/plugins/inputs/openvpn"
+	"github.com/influxdata/telegraf/plugins/inputs/openvpn"
 )
 
 var configFile = flag.String("config", "", "path to the config file for this plugin")
+var usage = flag.Bool("usage", false, "print sample configuration")
+
+func printConfig(name string, p telegraf.PluginDescriber) {
+	fmt.Printf("# %s\n", p.Description())
+	fmt.Printf("[[inputs.%s]]", name)
+
+	config := p.SampleConfig()
+	if config != "" {
+		fmt.Printf(config)
+	} else {
+		fmt.Printf("\n  # no configuration\n")
+	}
+}
 
 func main() {
 	flag.Parse()
+
+	if *usage {
+		printConfig("openvpn", &openvpn.OpenVPN{})
+
+		os.Exit(0)
+	}
 
 	shim := shim.New()
 
