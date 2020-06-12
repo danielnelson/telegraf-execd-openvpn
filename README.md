@@ -5,7 +5,7 @@ OpenVPN Plugin for Telegraf execd input
 
 ## Usage
 
-- Download the [latest release package][release] for your platform.
+- Download the [latest release package][releases] for your platform.
 
 - Unpack the build to your system:
   ```sh
