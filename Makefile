@@ -20,13 +20,13 @@ openvpn-linux-amd64.tar.gz: GOARCH := amd64
 openvpn-windows-amd64.tar.gz: GOOS := windows
 openvpn-windows-amd64.tar.gz: GOARCH := amd64
 openvpn-%.tar.gz:
-	env GOOS=$(GOOS) GOARCH=$(GOARCH) go build -o "dist/openvpn-$*/openvpn" -ldflags "-w -s" ./cmd/openvpn
 	mkdir -p "dist/openvpn-$*"
+	cd "dist/openvpn-$*" && env GOOS=$(GOOS) GOARCH=$(GOARCH) go build -ldflags "-w -s" ../../cmd/openvpn
 	cd dist && tar czf "$@" "openvpn-$*"
 
 openvpn-%.zip:
-	env GOOS=$(GOOS) GOARCH=$(GOARCH) go build -o "dist/openvpn-$*/openvpn" -ldflags "-w -s" ./cmd/openvpn
 	mkdir -p "dist/openvpn-$*"
+	cd "dist/openvpn-$*" && env GOOS=$(GOOS) GOARCH=$(GOARCH) go build -ldflags "-w -s" ../../cmd/openvpn
 	cd dist && zip -r "$@" "openvpn-$*"
 
 .PHONY: clean
