@@ -58,10 +58,20 @@ jobs:
         tag_name: ${{ github.ref }}
         release_name: ${{ github.ref }}
 
-    - name: Download all artifacts
+    - name: Download artifacts
       uses: actions/download-artifact@v2
       with:
+        name: openvpn-linux-amd64.tar.gz
         path: ./
+
+    - name: Download artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: openvpn-windows-amd64.tar.gz
+        path: ./
+
+    - name: debug
+      run: ls -lR
 
     - name: Upload openvpn-linux-amd64.tar.gz
       uses: actions/upload-release-asset@v1
