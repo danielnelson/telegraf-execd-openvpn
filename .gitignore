@@ -1,1 +1,4 @@
-openvpn/input-openvpn
+openvpn
+openvpn-*.tar.gz
+openvpn-*.zip
+dist

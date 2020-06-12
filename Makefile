@@ -6,7 +6,8 @@ GOARM ?= $(shell go env GOARM)
 all: openvpn
 
 openvpn:
-	go build ./plugins/inputs/openvpn
+	cd ./plugins/inputs/openvpn && go build ./openvpn.go
+	mv ./plugins/inputs/openvpn/openvpn .
 
 .PHONY: dist
 dist: openvpn-$(GOOS)-$(GOARCH).tar.gz
