@@ -34,12 +34,12 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-        path: *.tar.gz
+        path: '*.tar.gz'
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
       with:
-        path: *.zip
+        path: '*.zip'
 
   release:
     name: Release
