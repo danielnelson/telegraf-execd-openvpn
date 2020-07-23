@@ -2,6 +2,6 @@ module github.com/danielnelson/telegraf-execd-plugins
 
 go 1.13
 
-require github.com/influxdata/telegraf v1.15.0-rc2
+require github.com/influxdata/telegraf v1.15.1
 
-replace github.com/influxdata/telegraf => github.com/danielnelson/telegraf v0.10.2-0.20200709224803-ab65cda47038
+replace github.com/influxdata/telegraf => github.com/danielnelson/telegraf v1.15.2-0.20200723194320-65e98d0d379f
