@@ -14,10 +14,13 @@ dist: openvpn-$(GOOS)-$(GOARCH).tar.gz
 
 .PHONY: dist-all
 dist-all: openvpn-linux-amd64.tar.gz
+dist-all: openvpn-linux-arm64.tar.gz
 dist-all: openvpn-windows-amd64.zip
 
 openvpn-linux-amd64.tar.gz: GOOS := linux
 openvpn-linux-amd64.tar.gz: GOARCH := amd64
+openvpn-linux-arm64.tar.gz: GOOS := linux
+openvpn-linux-arm64.tar.gz: GOARCH := arm64
 openvpn-windows-amd64.zip: GOOS := windows
 openvpn-windows-amd64.zip: GOARCH := amd64
 openvpn-windows-amd64.zip: EXT := .exe

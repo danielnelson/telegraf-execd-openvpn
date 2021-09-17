@@ -30,13 +30,18 @@ jobs:
     - name: Create distribution
       run: make dist-all
 
-    - name: Upload artifact
+    - name: Upload artifact for linux amd64
       uses: actions/upload-artifact@v2
       with:
         name: openvpn-linux-amd64.tar.gz
         path: dist/openvpn-linux-amd64.tar.gz
+    - name: Upload artifact for linux arm64
+      uses: actions/upload-artifact@v2
+      with:
+        name: openvpn-linux-arm64.tar.gz
+        path: dist/openvpn-linux-arm64.tar.gz
 
-    - name: Upload artifact
+    - name: Upload artifact for windows
       uses: actions/upload-artifact@v2
       with:
         name: openvpn-windows-amd64.zip
@@ -58,13 +63,19 @@ jobs:
         tag_name: ${{ github.ref }}
         release_name: ${{ github.ref }}
 
-    - name: Download artifacts
+    - name: Download artifacts for linux amd64
       uses: actions/download-artifact@v2
       with:
         name: openvpn-linux-amd64.tar.gz
         path: ./
+    
+    - name: Download artifacts for linux arm64
+      uses: actions/download-artifact@v2
+      with:
+        name: openvpn-linux-arm64.tar.gz
+        path: ./
 
-    - name: Download artifacts
+    - name: Download artifacts for windows
       uses: actions/download-artifact@v2
       with:
         name: openvpn-windows-amd64.zip
@@ -81,6 +92,16 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./openvpn-linux-amd64.tar.gz
         asset_name: openvpn-linux-amd64.tar.gz
+        asset_content_type: application/gzip
+
+    - name: Upload openvpn-linux-arm64.tar.gz
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./openvpn-linux-arm64.tar.gz
+        asset_name: openvpn-linux-arm64.tar.gz
         asset_content_type: application/gzip
 
     - name: Upload openvpn-windows-amd64.zip
